@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Navigation Bar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
+      color: #fff;
+      scroll-behavior: smooth;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(90deg, #ff416c, #ff4b2b);
+      padding: 0.75rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.35);
+    }
+    nav .brand {
+      color: #fff;
+      font-size: 1.7rem;
+      font-weight: bold;
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      transition: all 0.3s;
+    }
+    nav ul li a:hover {
+      background-color: rgba(255,255,255,0.25);
+      color: #ffe259;
+      transform: translateY(-3px) scale(1.05);
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .menu-toggle span {
+      height: 3px;
+      width: 28px;
+      background: #fff;
+      margin: 5px 0;
+      border-radius: 3px;
+      transition: all 0.3s;
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: linear-gradient(180deg, #ff416c, #ff4b2b);
+        position: absolute;
+        top: 65px;
+        right: 15px;
+        width: 220px;
+        border-radius: 10px;
+        padding: 1rem;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      }
+      nav ul.active {
+        display: flex;
+        animation: fadeIn 0.3s ease-in-out;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    section {
+      padding: 4rem 1.5rem;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+    section h1 {
+      font-size: 2.7rem;
+      color: #fff;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+    }
+    section p {
+      font-size: 1.2rem;
+      color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#home" class="brand">MySite</a>
+    <div class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="home">
+      <h1>Welcome to MySite</h1>
+      <p>Enjoy a brighter, more colorful navigation bar. Try resizing the screen or opening on mobile to see the hamburger menu.</p>
+    </section>
+    <section id="about">
+      <h1>About Us</h1>
+      <p>We create bold, vibrant, and user-friendly web designs that shine on every device.</p>
+    </section>
+    <section id="contact">
+      <h1>Contact</h1>
+      <p>Reach out to us and let’s build something exciting together.</p>
+    </section>
+  </main>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
+
+
+
+
